@@ -40,7 +40,7 @@ namespace GeekShopping.ProductAPI.src.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<ActionResult<ProductVO>> Create(ProductVO vo)
+        public async Task<ActionResult<ProductVO>> Create([FromBody] ProductVO vo)
         {
             if (vo == null) return BadRequest();
             await _repository.Create(vo);
