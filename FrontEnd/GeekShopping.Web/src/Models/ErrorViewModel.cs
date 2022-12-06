@@ -1,4 +1,4 @@
-namespace GeekShopping.Web.Models;
+namespace GeekShopping.Web.src.Models;
 
 public class ErrorViewModel
 {

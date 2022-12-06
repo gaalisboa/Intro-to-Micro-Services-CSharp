@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using GeekShopping.Web.Services.IServices;
+using GeekShopping.Web.src.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace GeekShopping.Web.Controllers
+namespace GeekShopping.Web.src.Controllers
 {
     [Route("[controller]")]
     public class ProductController : Controller
@@ -25,12 +25,6 @@ namespace GeekShopping.Web.Controllers
         {
             var products = await _productService.GetAllProducts();
             return View(products);
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
         }
     }
 }
