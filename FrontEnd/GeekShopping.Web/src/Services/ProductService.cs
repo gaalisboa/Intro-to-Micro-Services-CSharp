@@ -23,33 +23,38 @@ namespace GeekShopping.Web.Services
         {
             var response = await _client.PostAsJson($"{DefaultUrl}/Create", newProduct);
             if (!response.IsSuccessStatusCode) throw new Exception("Something went wrong when calling the API.");
-            return await response.ReadContentAs<ProductModel>();
+            var product = await response.ReadContentAs<ProductModel>();
+            return product;
         }
 
         public async Task<bool> DeleteProduct(long id)
         {
             var response = await _client.DeleteAsync($"{DefaultUrl}/delete/{id}");
             if (response.IsSuccessStatusCode) throw new Exception("Something went wrong when calling the API.");
-            return await response.ReadContentAs<bool>();
+            var deleted = await response.ReadContentAs<bool>();
+            return deleted;
         }
 
         public async Task<IEnumerable<ProductModel>> GetAllProducts()
         {
             var response = await _client.GetAsync($"{DefaultUrl}/getall");
-            return await response.ReadContentAs<List<ProductModel>>();
+            var products = await response.ReadContentAs<List<ProductModel>>();
+            return products;
         }
 
         public async Task<ProductModel> GetProductById(long id)
         {
             var response = await _client.GetAsync($"{DefaultUrl}/getbyid/{id}");
-            return await response.ReadContentAs<ProductModel>();
+            var product = await response.ReadContentAs<ProductModel>();
+            return product;
         }
 
         public async Task<ProductModel> UpdateProduct(ProductModel newProduct)
         {
             var response = await _client.PutAsJson($"{DefaultUrl}/update", newProduct);
             if (!response.IsSuccessStatusCode) throw new Exception("Something went wrong when calling the API.");
-            return await response.ReadContentAs<ProductModel>();
+            var product = await response.ReadContentAs<ProductModel>();
+            return product;
         }
     }
 }
