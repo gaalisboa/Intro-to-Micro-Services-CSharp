@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using GeekShopping.ProductAPI.src.Data.ValueObjects;
-using GeekShopping.ProductAPI.src.Models;
+using GeekShopping.ProductAPI.Data.ValueObjects;
+using GeekShopping.ProductAPI.Models;
 
-namespace GeekShopping.ProductAPI.src.Config
+namespace GeekShopping.ProductAPI.Config
 {
     public class MappingConfig
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using GeekShopping.ProductAPI.src.Data.ValueObjects;
-using GeekShopping.ProductAPI.src.Repository;
+using GeekShopping.ProductAPI.Data.ValueObjects;
+using GeekShopping.ProductAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace GeekShopping.ProductAPI.src.Controllers
+namespace GeekShopping.ProductAPI.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]

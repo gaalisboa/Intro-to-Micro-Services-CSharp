@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeekShopping.ProductAPI.src.Data.ValueObjects
+namespace GeekShopping.ProductAPI.Data.ValueObjects
 {
     public class ProductVO
     {

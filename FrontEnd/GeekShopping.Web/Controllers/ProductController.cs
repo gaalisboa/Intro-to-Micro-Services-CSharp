@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using GeekShopping.Web.src.Models;
-using GeekShopping.Web.src.Services.IServices;
+using GeekShopping.Web.Models;
+using GeekShopping.Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace GeekShopping.Web.src.Controllers
+namespace GeekShopping.Web.Controllers
 {
     [Route("[controller]")]
     public class ProductController : Controller

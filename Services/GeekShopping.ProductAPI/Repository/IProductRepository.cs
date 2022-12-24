@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GeekShopping.ProductAPI.src.Data.ValueObjects;
+using GeekShopping.ProductAPI.Data.ValueObjects;
 
-namespace GeekShopping.ProductAPI.src.Repository
+namespace GeekShopping.ProductAPI.Repository
 {
     public interface IProductRepository
     {

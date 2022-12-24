@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using GeekShopping.ProductAPI.src.Data.ValueObjects;
-using GeekShopping.ProductAPI.src.Models;
-using GeekShopping.ProductAPI.src.Models.Context;
+using GeekShopping.ProductAPI.Data.ValueObjects;
+using GeekShopping.ProductAPI.Models;
+using GeekShopping.ProductAPI.Models.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace GeekShopping.ProductAPI.src.Repository
+namespace GeekShopping.ProductAPI.Repository
 {
     public class ProductRepository : IProductRepository
     {

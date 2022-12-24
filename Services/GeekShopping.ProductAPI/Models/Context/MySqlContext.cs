@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace GeekShopping.ProductAPI.src.Models.Context
+namespace GeekShopping.ProductAPI.Models.Context
 {
     public class MySqlContext : DbContext
     {

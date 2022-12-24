@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GeekShopping.Web.src.Models;
+using GeekShopping.Web.Models;
 
-namespace GeekShopping.Web.src.Services.IServices
+namespace GeekShopping.Web.Services.IServices
 {
     public interface IProductService
     {

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GeekShopping.Web.src.Models;
-using GeekShopping.Web.src.Services.IServices;
-using GeekShopping.Web.src.Utils;
+using GeekShopping.Web.Models;
+using GeekShopping.Web.Services.IServices;
+using GeekShopping.Web.Utils;
 
 namespace GeekShopping.Web.Services
 {

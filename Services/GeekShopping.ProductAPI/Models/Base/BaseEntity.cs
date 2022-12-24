@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeekShopping.ProductAPI.src.Models.Base
+namespace GeekShopping.ProductAPI.Models.Base
 {
     public class BaseEntity
     {
