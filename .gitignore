@@ -398,4 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Something else
-foo/
+**/foo/
+**/Duende
