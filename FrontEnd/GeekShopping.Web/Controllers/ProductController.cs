@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using GeekShopping.Web.Models;
 using GeekShopping.Web.Services.IServices;
+using GeekShopping.Web.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace GeekShopping.Web.Controllers
 {
@@ -23,6 +19,7 @@ namespace GeekShopping.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> ProductIndex()
         {
             var products = await _productService.GetAllProducts();
@@ -36,6 +33,7 @@ namespace GeekShopping.Web.Controllers
         }
 
         [HttpPost("ProductCreate")]
+        [Authorize]
         public async Task<IActionResult> ProductCreate(ProductModel productModel)
         {
             if (ModelState.IsValid)
@@ -57,6 +55,7 @@ namespace GeekShopping.Web.Controllers
         }
 
         [HttpPost("ProductUpdate")]
+        [Authorize]
         public async Task<IActionResult> ProductUpdate(ProductModel productModel)
         {
             if (ModelState.IsValid)
@@ -69,6 +68,7 @@ namespace GeekShopping.Web.Controllers
         }
 
         [HttpGet("ProductDelete")]
+        [Authorize]
         public async Task<IActionResult> ProductDelete(long id)
         {
             var product = await _productService.GetProductById(id);
@@ -78,6 +78,7 @@ namespace GeekShopping.Web.Controllers
         }
 
         [HttpPost("ProductDelete")]
+        [Authorize(Roles = Role.Admin)]
         public async Task<IActionResult> ProductDelete(ProductModel productModel)
         {
             var response = await _productService.DeleteProduct(productModel.Id);
