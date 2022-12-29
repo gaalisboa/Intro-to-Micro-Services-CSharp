@@ -25,7 +25,7 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://localhost:4435/";
+        options.Authority = "https://localhost:4430/";
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = false
@@ -45,7 +45,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "GeekShopping.ProductApi", Version = "v1" });
     c.EnableAnnotations();
-    
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"Enter 'Bearer' [space] and your token",
@@ -55,7 +55,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer"
     });
 
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement 
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme
