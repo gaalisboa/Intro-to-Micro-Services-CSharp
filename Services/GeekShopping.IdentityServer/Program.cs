@@ -12,7 +12,7 @@ builder.Services.AddDbContext<MySqlContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
     new MySqlServerVersion(new Version(8, 0, 31))));
 
-// builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<MySqlContext>()
@@ -28,10 +28,9 @@ var myIdentityServer = builder.Services.AddIdentityServer(options =>
 
 })
     .AddInMemoryIdentityResources(IdentityConfiguration.IdentityResources)
+    .AddInMemoryApiScopes(IdentityConfiguration.ApiScopes)
     .AddInMemoryClients(IdentityConfiguration.Clients)
     .AddAspNetIdentity<ApplicationUser>();
-
-builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 myIdentityServer.AddDeveloperSigningCredential();
 
@@ -49,13 +48,10 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseIdentityServer();
-
 app.UseAuthorization();
 
 initializer.Initialize();
