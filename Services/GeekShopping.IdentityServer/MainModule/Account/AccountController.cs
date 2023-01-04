@@ -5,31 +5,25 @@
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Events;
 using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
-using Duende.IdentityServer.Test;
 using Microsoft.AspNetCore.Identity;
 using GeekShopping.IdentityServer.Model;
 using GeekShopping.IdentityServer.MainModule.Account;
-using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace IdentityServerHost.Quickstart.UI
 {
-/// <summary>
-/// This sample controller implements a typical login/logout/provision workflow for local and external accounts.
-/// The login service encapsulates the interactions with the user data store. This data store is in-memory only and cannot be used for production!
-/// The interaction service provides a way for the UI to communicate with identityserver for validation and context retrieval
-/// </summary>
+    /// <summary>
+    /// This sample controller implements a typical login/logout/provision workflow for local and external accounts.
+    /// The login service encapsulates the interactions with the user data store. This data store is in-memory only and cannot be used for production!
+    /// The interaction service provides a way for the UI to communicate with identityserver for validation and context retrieval
+    /// </summary>
     [SecurityHeaders]
     [AllowAnonymous]
     public class AccountController : Controller

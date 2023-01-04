@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using GeekShopping.Web.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace GeekShopping.Web.Controllers;
 
@@ -33,6 +34,8 @@ public class HomeController : Controller
     [Authorize]
     public async Task<IActionResult> Login()
     {
+        var accessToken = await HttpContext.GetTokenAsync("access_token");
+        Console.WriteLine(accessToken);
         return RedirectToAction(nameof(Index));
     }
 
