@@ -1,48 +1,38 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace GeekShopping.ProductAPI.Migrations
 {
-    public partial class SeedProductData : Migration
+    public partial class AddProductTableOnDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "image_url",
-                table: "product",
-                type: "varchar(255)",
-                maxLength: 255,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "varchar(255)",
-                oldMaxLength: 255)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "description",
-                table: "product",
-                type: "varchar(500)",
-                maxLength: 500,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "varchar(500)",
-                oldMaxLength: 500)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "category_name",
-                table: "product",
-                type: "varchar(50)",
-                maxLength: 50,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "varchar(50)",
-                oldMaxLength: 50)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
+            migrationBuilder.CreateTable(
+                name: "product",
+                columns: table => new
+                {
+                    id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    name = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    price = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    description = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    category_name = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    image_url = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_product", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.InsertData(
                 table: "product",
@@ -66,125 +56,8 @@ namespace GeekShopping.ProductAPI.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 2L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 3L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 4L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 5L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 6L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 7L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 8L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 9L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 10L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 11L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 12L);
-
-            migrationBuilder.DeleteData(
-                table: "product",
-                keyColumn: "id",
-                keyValue: 13L);
-
-            migrationBuilder.UpdateData(
-                table: "product",
-                keyColumn: "image_url",
-                keyValue: null,
-                column: "image_url",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "image_url",
-                table: "product",
-                type: "varchar(255)",
-                maxLength: 255,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "varchar(255)",
-                oldMaxLength: 255,
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.UpdateData(
-                table: "product",
-                keyColumn: "description",
-                keyValue: null,
-                column: "description",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "description",
-                table: "product",
-                type: "varchar(500)",
-                maxLength: 500,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "varchar(500)",
-                oldMaxLength: 500,
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.UpdateData(
-                table: "product",
-                keyColumn: "category_name",
-                keyValue: null,
-                column: "category_name",
-                value: "");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "category_name",
-                table: "product",
-                type: "varchar(50)",
-                maxLength: 50,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "varchar(50)",
-                oldMaxLength: 50,
-                oldNullable: true)
-                .Annotation("MySql:CharSet", "utf8mb4")
-                .OldAnnotation("MySql:CharSet", "utf8mb4");
+            migrationBuilder.DropTable(
+                name: "product");
         }
     }
 }

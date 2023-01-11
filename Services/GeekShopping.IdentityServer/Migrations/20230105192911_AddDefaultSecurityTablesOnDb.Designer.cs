@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekShopping.IdentityServer.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20221224010635_AddDefaultSecurityTablesOnDb")]
+    [Migration("20230105192911_AddDefaultSecurityTablesOnDb")]
     partial class AddDefaultSecurityTablesOnDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,11 +41,9 @@ namespace GeekShopping.IdentityServer.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
